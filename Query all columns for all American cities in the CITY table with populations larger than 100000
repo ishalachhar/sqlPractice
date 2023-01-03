@@ -1,0 +1,6 @@
+Create table city(
+ID Int,
+NAME varchar2(17),
+Countrycode varchar2(3),
+District varchar(20),
+Population int(100000));
