@@ -1,0 +1,1 @@
+select name from students where marks>75 and right(name,3) in (select right(name,3) from students )  order by right(name,3) , id asc
