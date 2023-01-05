@@ -1,0 +1,11 @@
+  SELECT new_col
+FROM 
+(SELECT A, B, C,
+      CASE 
+        WHEN (A + B) > C AND A = B AND B = C THEN 'Equilateral'
+        WHEN (A + B) > C AND A = B  OR A = C AND B <> C THEN 'Isosceles'
+        WHEN (A + B) > C AND A <> B AND B <> C AND A <> C THEN 'Scalene'
+        WHEN (A + B) <= C THEN 'Not A Triangle' 
+     END new_col
+FROM 
+TRIANGLES) New_tab     
