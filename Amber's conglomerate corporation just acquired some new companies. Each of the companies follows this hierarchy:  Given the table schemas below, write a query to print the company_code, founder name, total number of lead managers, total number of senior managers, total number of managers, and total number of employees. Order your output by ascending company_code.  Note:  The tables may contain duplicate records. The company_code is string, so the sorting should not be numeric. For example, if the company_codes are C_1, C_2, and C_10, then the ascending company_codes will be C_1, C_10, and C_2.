@@ -1,0 +1,4 @@
+select f.company_code,f.founder name,count(distinct e.lead_manager_code),count(distinct e.senior_manager_code),count(distinct e.manager_code),count(distinct e.employee_code) from employee as e 
+left join company  as f   on f.company_code=e.company_code
+
+group by f.company_code,f.founder order by f.company_code asc
