@@ -1,0 +1,1 @@
+select sum(ci.population) from city as ci Left Join country as c on c.code=ci.countrycode where c.continent= 'Asia' 
