@@ -1,0 +1,10 @@
+select w1.id, sq.age, sq.min_gold, sq.power
+from 
+(select w.code, p.age, w.power,min(w.coins_needed) as min_gold 
+from wands w join wands_property p
+on w.code=p.code
+where p.is_evil=0
+group by w.code, p.age, w.power) as sq
+join wands w1
+on w1.code=sq.code and w1.coins_needed=sq.min_gold
+order by sq.power desc, sq.age desc; 
