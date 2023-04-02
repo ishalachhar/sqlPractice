@@ -1,0 +1,9 @@
+select pks.name from
+(Select s.name,fpks.id,pack.salary as my_salary,fpks.friend_id,fpks.salary as friend_salary 
+from (select p.salary,f.friend_id,f.id from friends f left join packages p on p.id=f.friend_id) as fpks 
+left join packages pack 
+on fpks.id=pack.id 
+ left join students s 
+ on fpks.id= s.id 
+ where pack.salary<fpks.salary 
+ order by 5 asc) as pks
